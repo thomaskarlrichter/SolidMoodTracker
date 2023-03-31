@@ -1,6 +1,5 @@
 import { Session } from "@inrupt/solid-client-authn-browser";
 
-
 const ERROR = {
   MISSING_WEB_ID: 'MISSING_WEB_ID',
   INVALID_WEB_ID: 'INVALID_WEB_ID',

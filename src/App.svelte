@@ -45,7 +45,7 @@
 <main>
   <header>
     <h2>Getting Started</h2>
-    <h3>with Inrupt JavaScript Client Libraries</h3>
+    <h3>with Inrupt JavaScript Client Libraries with podspaces ,<a href="https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/getting-started/">Tutorial</a></h3>
   </header>
   <section id="login" class="panel">
     <div class="row">
@@ -66,70 +66,7 @@
     </div>
   </section>
 
-  <div id="read" class="panel">
-    <div class="row">
-      <form id="writeForm" on:submit={onWriteSubmit}>
-        <label id="writelabel" for="input_name">2. Write your name: </label>
-        <input
-          type="text"
-          id="input_name"
-          name="name"
-          size="50"
-          placeholder="Your name here"
-          bind:value={input_name}
-        />
-        <button type="submit">
-          Write to Profile
-        </button>
-      </form>
-    </div>
-
-    <dl class="display">
-      <dt>Writing status:&nbsp;</dt>
-      <dd id="labelWriteStatus" class="labelStatus" role="alert">
-        {#if !isLogged}
-            ...you can't write [{name}] until you first login!
-        {:else}
-          Wrote [{name}] as name successfully!
-        {/if}
-        </dd>
-    </dl>
-  </div>
-
-  <div id="read" class="panel">
-    <div class="row">
-      <form id="readForm"  on:submit={onReadSubmit}>
-        <label id="readlabel" for="webID"
-          >3. Read back name (anyone's!) from their WebID:
-        </label>
-        <input
-          type="url"
-          id="webID"
-          name="webID"
-          size="50"
-          placeholder="...not logged in yet - but enter any WebID to read from its profile..."
-          bind:value={webId}
-        />
-        <button type="submit" name="btnRead" id="btnRead">
-          Read Profile
-        </button>
-      </form>
-    </div>
-    <dl class="display">
-      <dt>Formatted Name (FN) read from Pod:&nbsp;</dt>
-      <dd id="labelFN">
-      {#if writeSuccess} 
-        ...click the 'Read Profile' button to to see what the name might be now...?!
-      {:else if readName}
-        {readName}
-      {:else if readError}
-        Entered value [{webID}] does not appear to be a WebID. Error: [{readError}]
-      {:else}
-        Login first, or enter a WebID (any WebID!) to read from its profile
-      {/if}
-      </dd>
-    </dl>
-  </div>
+  
 </main>
 
 <style>
