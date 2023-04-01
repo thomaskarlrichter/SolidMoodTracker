@@ -5,7 +5,9 @@
   let isLogged = false;
 
   </script>
-<main id="read">Hallo Main</main>
+<main id="read">
+  Hallo Main
+</main>
 
 <style>
   main {
