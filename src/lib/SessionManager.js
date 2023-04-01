@@ -51,3 +51,8 @@ export async function login() {
   }
   return true;
 }
+
+export async function logout() {
+  await session.logout();
+  return false;
+}

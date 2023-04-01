@@ -3,7 +3,7 @@
 
   
   import { onMount } from 'svelte';
-  import {login, handleRedirectAfterLogin, getFetch, SOLID_IDENTITY_PROVIDER } from './lib/SessionManager.js'; 
+  import {login, logout, handleRedirectAfterLogin, getFetch, SOLID_IDENTITY_PROVIDER } from './lib/SessionManager.js'; 
   import { readProfile, writeProfile  } from './lib/readWrite.js';
   let webId = undefined;
   let isLogged = false;
@@ -16,6 +16,13 @@
   const onLoginClick = async () => {
     isLogged =  await login();
     console.log('isLogged', isLogged)
+  }
+
+  const onLogoutClick = async  () => {
+    isLogged = await logout();
+    alert("logged out");
+    webId = undefined;
+    console.log("isLogged", isLogged)
   }
 
   let input_name = '';
@@ -58,7 +65,11 @@
           ><a target="_blank" href="{SOLID_IDENTITY_PROVIDER}">{SOLID_IDENTITY_PROVIDER}</a></span
         >:
       </label>
+      {#if webId === undefined}
       <button name="btnLogin" id="btnLogin" on:click={onLoginClick}>Login</button>
+      {:else}
+        <button name="btnLogout" id="btnLogout" on:click={onLogoutClick}>Logout</button>
+      {/if}
       <p id="labelStatus" class="labelStatus" role="alert">
         {#if webId === undefined} 
  ...not logged in yet - but enter any WebID to read from its profile...
@@ -71,7 +82,7 @@
 
   
 </main>
-<DataView/>
+<DataView session={webId}/>
 
 <style>
   :root {

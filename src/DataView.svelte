@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let session;
   import { onMount } from 'svelte';
   import { readProfile, writeProfile  } from './lib/readWrite.js';
   let webId = undefined;
@@ -6,7 +7,7 @@
 
   </script>
 <main id="read">
-  Hallo Main
+  Hallo {session}
 </main>
 
 <style>
