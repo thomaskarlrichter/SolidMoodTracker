@@ -1,4 +1,7 @@
 <script lang="ts">
+  import DataView from './DataView.svelte';
+
+  
   import { onMount } from 'svelte';
   import {login, handleRedirectAfterLogin, getFetch, SOLID_IDENTITY_PROVIDER } from './lib/SessionManager.js'; 
   import { readProfile, writeProfile  } from './lib/readWrite.js';
@@ -68,6 +71,7 @@
 
   
 </main>
+<DataView/>
 
 <style>
   :root {
